@@ -1,96 +1,95 @@
 -- Created by Vertabelo (http://vertabelo.com)
 -- Last modification date: 2018-07-18 14:45:57.902
-CREATE DATABASE TioJuanito
-GO
+CREATE DATABASE TioJuanito;
 -- tables
 -- Table: Apoderador
 
-USE TioJuanito
-GO
+USE TioJuanito;
+
 
 CREATE TABLE Apoderador (
-    cod_apod int  NOT NULL,
-    dni_apod int  NOT NULL,
-    nom_apod varchar(50)  NOT NULL,
-    ape_apod varchar(50)  NOT NULL,
-    sexo_apod char(1)  NOT NULL,
+    cod_apod int  ,
+    dni_apod int  ,
+    nom_apod varchar(50)  ,
+    ape_apod varchar(50)  ,
+    sexo_apod char(1)  ,
     CONSTRAINT Apoderador_pk PRIMARY KEY  (cod_apod)
 );
 
 -- Table: Bus
 CREATE TABLE Bus (
-    cod_bus int  NOT NULL,
-    placa_bus varchar(10)  NOT NULL,
-    color_bus varchar(25)  NOT NULL,
-    papeletas_bus int  NOT NULL,
+    cod_bus int  ,
+    placa_bus varchar(10)  ,
+    color_bus varchar(25)  ,
+    papeletas_bus int  ,
     CONSTRAINT Bus_pk PRIMARY KEY  (cod_bus)
 );
 
 -- Table: Colegio
 CREATE TABLE Colegio (
-    cod_cole int  NOT NULL,
-    desc_cole int  NOT NULL,
+    cod_cole int  ,
+    desc_cole varchar(50) ,
     CONSTRAINT Colegio_pk PRIMARY KEY  (cod_cole)
 );
 
 -- Table: Contrado
 CREATE TABLE Contrado (
-    cod_cont int  NOT NULL,
-    fec_cont date  NOT NULL,
-    tiempo_cont varchar(25)  NOT NULL,
-    Apoderador_cod_apod int  NOT NULL,
-    Turno_cod_turno int  NOT NULL,
+    cod_cont int  ,
+    fec_cont date  ,
+    tiempo_cont varchar(25)  ,
+    Apoderador_cod_apod int  ,
+    Turno_cod_turno int  ,
     CONSTRAINT Contrado_pk PRIMARY KEY  (cod_cont)
 );
 
 -- Table: Hijo
 CREATE TABLE Hijo (
-    cod_hijo int  NOT NULL,
-    nom_hijo varchar(50)  NOT NULL,
-    ape_hijo varchar(50)  NOT NULL,
-    dir_hijo varchar(50)  NOT NULL,
-    Apoderador_cod_apod int  NOT NULL,
-    Colegio_cod_cole int  NOT NULL,
+    cod_hijo int  ,
+    nom_hijo varchar(50)  ,
+    ape_hijo varchar(50)  ,
+    dir_hijo varchar(50)  ,
+    Apoderador_cod_apod int  ,
+    Colegio_cod_cole int  ,
     CONSTRAINT Hijo_pk PRIMARY KEY  (cod_hijo)
 );
 
 -- Table: Papeleta
 CREATE TABLE Papeleta (
-    cod_papeleta int  NOT NULL,
-    desc_papeleta varchar(100)  NOT NULL,
-    fecha_papeleta date  NOT NULL,
-    Viaje_cod_viaje int  NOT NULL,
+    cod_papeleta int  ,
+    desc_papeleta varchar(100)  ,
+    fecha_papeleta date  ,
+    Viaje_cod_viaje int  ,
     CONSTRAINT Papeleta_pk PRIMARY KEY  (cod_papeleta)
 );
 
 -- Table: Trabajador
 CREATE TABLE Trabajador (
-    cod_tbjr int  NOT NULL,
-    dni_tbjr int  NOT NULL,
-    nom_tbjr varchar(50)  NOT NULL,
-    ape_tbjr varchar(50)  NOT NULL,
-    sexo_tbjr char(1)  NOT NULL,
-    tip_tbjr char(1)  NOT NULL,
+    cod_tbjr int  ,
+    dni_tbjr int  ,
+    nom_tbjr varchar(50)  ,
+    ape_tbjr varchar(50)  ,
+    sexo_tbjr char(1)  ,
+    tip_tbjr char(1)  ,
     CONSTRAINT Trabajador_pk PRIMARY KEY  (cod_tbjr)
 );
 
 -- Table: Turno
 CREATE TABLE Turno (
-    cod_turno int  NOT NULL,
-    tip_turno varchar(50)  NOT NULL,
-    horainicio_turno datetime  NOT NULL,
-    horafin_turno datetime  NOT NULL,
-    Trabajador_cod_tbjr int  NOT NULL,
+    cod_turno int  ,
+    tip_turno varchar(50)  ,
+    horainicio_turno datetime  ,
+    horafin_turno datetime  ,
+    Trabajador_cod_tbjr int  ,
     CONSTRAINT Turno_pk PRIMARY KEY  (cod_turno)
 );
 
 -- Table: Viaje
 CREATE TABLE Viaje (
-    cod_viaje int  NOT NULL,
-    ksalida_viaje varchar(25)  NOT NULL,
-    kregreso_viaje varchar(25)  NOT NULL,
-    Bus_cod_bus int  NOT NULL,
-    Turno_cod_turno int  NOT NULL,
+    cod_viaje int  ,
+    ksalida_viaje varchar(25)  ,
+    kregreso_viaje varchar(25)  ,
+    Bus_cod_bus int  ,
+    Turno_cod_turno int  ,
     CONSTRAINT Viaje_pk PRIMARY KEY  (cod_viaje)
 );
 
